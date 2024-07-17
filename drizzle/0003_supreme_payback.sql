@@ -1,0 +1,2 @@
+ALTER TABLE "take-home-fullstack_github_users" ALTER COLUMN "github_id" SET DATA TYPE integer USING(github_id::integer);--> statement-breakpoint
+ALTER TABLE "take-home-fullstack_not_found" ALTER COLUMN "github_id" SET DATA TYPE integer USING(github_id::integer);

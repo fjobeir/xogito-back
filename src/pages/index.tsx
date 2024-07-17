@@ -1,20 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
 
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const latestPost = api.post.getLatest.useQuery();
-  const createPostMutation = api.post.create.useMutation({
-    onSuccess: () => {
-      latestPost.refetch();
-    },
-  });
-  const createPost = () => {
-    createPostMutation.mutate({
-      name: `New Post!`,
-    });
-  };
+  const latestGithubUser = api.githubUsers.getLatest.useQuery(); // api.post.getLatest.useQuery();
 
   return (
     <>
@@ -25,21 +14,21 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <button
-            type="button"
-            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-            onClick={createPost}
-          >
-            Create Post
-          </button>
-          <p className="">
-            Latest Post:
-            {latestPost.data && (
-              <span>
-                {`${latestPost.data.name}, Created: ${latestPost.data.createdAt.toString()}`}
-              </span>
-            )}
-          </p>
+          <h2>Latest User</h2>
+          {latestGithubUser.data && (
+            <div>
+              {Object.entries(latestGithubUser.data).map(([key, value]) => (
+                <p key={key}>
+                  <span className="font-bold">{key}:</span>{" "}
+                  <span>
+                    {value?.toString() ?? (
+                      <span className="text-red-600">N/A</span>
+                    )}
+                  </span>
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </>

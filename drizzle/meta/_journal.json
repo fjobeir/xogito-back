@@ -8,6 +8,27 @@
       "when": 1720655266525,
       "tag": "0000_peaceful_scorpion",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1721223225763,
+      "tag": "0001_hesitant_dakota_north",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1721230593434,
+      "tag": "0002_big_miss_america",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1721232619235,
+      "tag": "0003_supreme_payback",
+      "breakpoints": true
     }
   ]
 }
